@@ -1,0 +1,23 @@
+{
+  "name": "Random IMEI input autocomplete",
+  "version": "1.0",
+  "description": "Autocomplete the inputs that require a valid IMEI with a random one. Useful for testing/development purposes",
+  "permissions": ["activeTab", "contextMenus"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*/*", "http://*/*"],
+        "js": ["content.js"],
+        "run_at": "document_end"
+    }
+  ],
+  "page_action": {
+    "default_title": "Genera IMEI random",
+    "default_popup": "popup.html"
+  },
+  "web_accessible_resources": ["dice.png"],
+  "manifest_version": 2
+}
